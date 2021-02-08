@@ -11,7 +11,6 @@ app.get('/', async (req: Request, res: Response) => {
     res.send('healthy');
 });
 
-
 app.get('/payment-amount', async (req: Request, res: Response) => {
     const query = req.query;
     // TODO: add validation
@@ -20,6 +19,16 @@ app.get('/payment-amount', async (req: Request, res: Response) => {
     let paymentPerPeriod = MortgageCalculator.calculatePayment(paymentRequest);
 
     res.send({ paymentAmount: paymentPerPeriod });
+});
+
+app.get('/mortgage-amount', async (req: Request, res: Response) => {
+    const query = req.query;
+    // TODO: add validation
+
+    let mortgageRequest = RequestBuilder.buildMortgageAmountRequest(query);
+    let maxMortgageAmount = MortgageCalculator.calculateMaxMortgage(mortgageRequest);
+
+    res.send({ maxMortgage: maxMortgageAmount });
 });
 
 app.patch('/interest-rate', async (req: Request, res: Response) => {
