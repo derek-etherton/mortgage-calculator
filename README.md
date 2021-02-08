@@ -1,4 +1,4 @@
-This project was created using node.js, express, and typescript. No environmental config is required.
+This project was created using node, express, and typescript. No environmental config is required.
 
 # Steps to run:
 1. in the root directory, execute `npm install` to download dependencies
