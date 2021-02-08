@@ -5,8 +5,8 @@ export namespace RequestBuilder {
     export function buildPaymentAmountRequest(input: any): PaymentAmountRequest {
         let request = input as PaymentAmountRequest;
 
-        if (request.amortizationPeriod === null || request.downPayment === null ||
-            request.paymentSchedule == null || request.askingPrice === null) {
+        if (request.amortizationPeriod === undefined || request.downPayment === undefined ||
+            request.paymentSchedule == undefined || request.askingPrice === undefined) {
             throw new Error('Missing required input fields, please provide amortizationPeriod, '
                 + 'downPayment, paymentSchedule, and askingPrice');
         }
@@ -17,7 +17,7 @@ export namespace RequestBuilder {
     export function buildMortgageAmountRequest(input: any): MortgageAmountRequest {
         let request = input as MortgageAmountRequest;
 
-        if (request.paymentAmount === null) {
+        if (request.paymentAmount === undefined) {
             throw new Error('paymentAmount is a required field');
         }
 
